@@ -364,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-#hero .btn-get-started {
+.btn-get-started {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
@@ -954,6 +954,7 @@ section {
 .testimonials .quote-icon {
   text-align: center;
   margin-bottom: 30px;
+  color: #007f44;
 }
 
 .testimonials .quote-icon i {
@@ -968,6 +969,13 @@ section {
   text-align: center;
   color: #fff;
 }
+
+.testimonials .testimonial-item img {
+  max-height:600px;
+  width: auto;
+  margin: 0 auto;
+}
+
 
 .testimonials .testimonial-item p {
   font-style: italic;
