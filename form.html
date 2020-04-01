@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Sterling Cares </title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous" />
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+              rel="stylesheet"
+              crossorigin="anonymous" />
+
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css"
+              rel="stylesheet"
+              crossorigin="anonymous" />
+
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <style>
+         body {
+             color: #333;
+         }
+         
+         .form-class {
+             margin:  10px auto;
+             max-width: 600px;
+         }
+
+         .form-class .form-group {
+             margin: 30px auto 50px;
+         }
+
+         .form-class .form-group label {
+             color: #999;
+             display: block;
+             font-size: 12px;
+             margin-bottom: 10px;
+             text-align: right;
+         }
+
+         
+         .form-class .form-group label .req {
+             color: red;
+             display: inline-block;
+             font-size: 14px;
+             margin-right: 10px;
+         }
+
+         input[type="text"], textarea, select {
+             outline: none;
+             border: none !important;
+             border-bottom: 2px solid #ccc !important;
+             -webkit-box-shadow: none !important;
+             -moz-box-shadow: none !important;
+             box-shadow: none !important;
+             border-radius: 0px !important;
+         }
+
+         input:focus, text:focus {
+             border-color: #007bff !important;
+         }
+
+         .form-class .submit-btn {
+             display: block;
+             margin-top: 30px;
+             width: 100%;
+         }
+
+         .logo { margin-bottom: 20px; }
+         .logo img {
+             display: block;
+             max-width: 600px;
+             width: 100%;
+         }
+
+         .shipping-mode {
+             display: none;
+         }
+
+         #deposit-slip-file {
+             display: none;
+         }
+
+         #deposit-slip-btn {
+             font-size: 13px;
+             padding: 10px 20px;
+         }
+
+         .display-upload {
+             display: none;
+         }
+         
+         .upload-preview {
+             max-width: 300px;
+             position: relative;
+         }
+         
+         .upload-preview a.close-preview {
+             color: red;
+             margin-left: 100%;
+             margin-top: -10px;
+             left: -28px;
+             position: absolute;
+         }
+         
+         .upload-preview img {
+             border: 1px solid #ddd;
+             border-radius: 2px;
+             display:block;
+             max-width: 280px;
+             padding: 10px;
+             width: 100%;
+         }
+
+         input[type="text"].err, textarea.err, select.err {
+             border-color: red !important;
+         }
+        </style>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+        <script type"text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-class">
+                <div class="logo">
+                    <center>
+                        <img src="https://assets.bossjob.com/companies/4300/logo/mWa8vH2lqGDCA9LqX33H28ilYMxPlnTKxRcWHUuj.png">
+                    </center>
+                </div>
+                <div class="form-group">
+                    <label><span class="req">*</span> Full Name</label>
+                    <input type="text" class="form-control input-form required-input"
+                           placeholder="Enter your Fullname"
+                           id="input-name"/>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="req">*</span> Contact Number</label>
+                    <input type="text" class="form-control input-form required-input"
+                           placeholder="Enter your Contact Number"
+                           id="input-contact"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="text" class="form-control input-form"
+                           placeholder="Enter your Email Address"
+                           id="input-email"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Organization</label>
+                    <input type="text" class="form-control input-form"
+                           placeholder="Enter your Organization"
+                           id="input-organization"/>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Quantity</label>
+                    <input type="text" class="form-control input-form required-input"
+                           placeholder="Enter order quantity"
+                           id="input-qty"/>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Beneficiary</label>
+                    <input type="text" class="form-control input-form required-input"
+                           placeholder="Enter Beneficiary"
+                           id="input-beneficiary"/>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Mode of Shipping</label>
+                    <select class="form-control input-form required-input" id="input-shipping-mode">
+                        <option selected disabled>Select mode of Shipping</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="delivery">Delivery</option>
+                    </select>
+                </div>
+                <div class="form-group shipping-mode" id="delivery">
+                    <label><span class="req">*</span> Delivery Address</label>
+                    <textarea placeholder="Enter your delivery address"
+                              class="form-control input-form"
+                              id="input-address"></textarea>
+                </div>
+                <div class="form-group shipping-mode" id="pickup">
+                    <label><span class="req">*</span> Pickup Address</label>
+                    <div><input type="radio" value="caloocan" name="branch"> Caloocan Branch
+                        <p><small>Sterling Place, 2302, Chino Roces Ave., Pasong Tamo Ext., Makati</small></p>
+                    </div>
+                    <div><input type="radio" value="makati" name="branch"> Makati Branch
+                        <p><small>Sterling Paper Products Enterprises, 111 Lapu-Lapu, Caloocan</small></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><span class="req">*</span> Deposit Slip</label>
+                    <div class="upload-btn">
+                        <button class="btn btn-primary" id="deposit-slip-btn"><i class="fa fa-upload"></i> Upload a File</button>
+                        <input type="file" class="form-control" id="deposit-slip-file" />
+                        <p><small class="text-success">Upload a photo of your deposit slip</small></p>
+                    </div>
+                    <div class="display-upload">
+                        <div class="upload-preview">
+                            <a href="#" class="close-preview"><i class="fas fa-times-circle"></i></a>
+                            <img src="" />
+                            <input type="hidden" class="deposit-slip input-form required-input" id="input-deposit-slip">
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <button class="btn btn-danger submit-btn">Submit Order</button>
+                </div>
+            </div>
+            <form method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeIBgN__BB7EFYXeQi8pU3soZLUIe01VU-P5mJsmteB-OSAfg/formResponse" 
+                  class="real-form"
+                  target="google-form-frame">
+                
+                <input type="hidden" name="entry.594017490" id="name" />
+                <input type="hidden" name="entry.209479185" id="contact" />
+                <input type="hidden" name="entry.1577165370" id="email" />
+                <input type="hidden" name="entry.413789895" id="organization" />
+                <input type="hidden" name="entry.820448976" id="qty" />
+                <input type="hidden" name="entry.1790000769" id="beneficiary" />
+                <input type="hidden" name="entry.844164960" id="shipping-mode" />
+                <input type="hidden" name="entry.1337268639" id="address" />
+                <input type="hidden" name="entry.1824279313" id="pickup-location" />
+                <input type="hidden" name="entry.1144749940" id="deposit-slip" />
+                <input type="hidden" name="fvv" value="1" />
+                <input type="hidden" name="draftResponse" value='[null,null,"-122021532327292073"]' />
+                <input type="hidden" name="pageHistory" value="0" />
+                <input type="hidden" name="fbzx" value="-122021532327292073" />
+            </form>
+            <iframe id="google-form-frame" name="google-form-frame" onload="iframeReady()" style="display:none"></iframe>
+        </div>
+
+        <script type="text/javascript">
+         var submitted = false;
+         $('#input-shipping-mode').change(function() {
+             $('.shipping-mode').hide();
+             $('.shipping-mode#' + this.value).show();
+         });
+
+         $('#deposit-slip-btn').click(function() {
+             $('#deposit-slip-file').click();
+         });
+
+         $('#deposit-slip-file').change(function(e) {
+             fileToTxt(this.files[0]);
+         });
+
+         $('.close-preview').click(function(e) {
+             e.preventDefault();
+             closePreview();
+         });
+
+         $('.submit-btn').click(function() {
+             disableInput(true);
+             validateInput();
+             disableInput(false);
+         });
+
+         var iframeReady = function() {
+             console.log(submitted);
+             if (!submitted) {
+                 return;
+             }
+             
+             $.alert({
+                 title: 'Success',
+                 type: 'green',
+                 content: 'You order was successfull. Thank you!',
+                 buttons: {
+                     Ok: function() {
+                         window.location.reload();
+                     }
+                 }
+             });
+
+             
+         };
+
+         var closePreview = function() {
+             $('.display-upload').hide();
+             $('.upload-btn').show();
+             $('.upload-preview img').attr('src', '');
+             $('.upload-preview input[type="hidden"].deposit-slip').val('');
+         }
+
+         var saveToCloud = function (str) {
+             $.post('http://115.84.230.75/upload.php', {file : str}, function(res) {
+                 res = eval('(' + res + ')');
+                 disableInput(false);
+                 
+                 if (res.type == 'error') {
+                     $.alert({
+                         title : 'Error',
+                         type : 'red',
+                         content: res.message
+                     });
+                     
+                     return;
+                 }
+
+                 $('.upload-preview img').attr('src', res.data);
+                 $('.upload-preview input[type="hidden"].deposit-slip').val(res.data);
+                 $('.upload-btn').hide();
+                 $('.display-upload').show();
+             });
+         }
+         
+         var fileToTxt = function(file) {
+             let reader = new FileReader();
+             reader.readAsDataURL(file);
+             reader.onload = function() {
+                 disableInput(true);
+                 saveToCloud(reader.result);
+             }
+
+             reader.onerror = function(error) {
+                 disableInput(false);
+                 $.alert({
+                     title: 'Error',
+                     type: 'red',
+                     content: 'Something went wrong. Please try again.'
+                 })
+             }
+         }
+
+         var disableInput = function(d) {
+             d = d || false;
+             $('.form-control').prop('disabled', d);
+             $('.submit-btn').prop('disabled', d);
+             let txt = 'Submit Order';
+             if (d) {
+                 txt = 'Please wait...'
+             }
+             
+             $('.submit-btn').html(txt);
+         }
+
+         var validateInput = function () {
+             let err = false;
+             disableInput(true);
+             $('.error-msg').remove();
+             $('.input-form').removeClass('err');
+             $('.input-form').each(function() {
+                 if ($(this).hasClass('required-input') && !$(this).val()) {
+                     addErrorMsgToElementGroup(this, 'This field is required');
+                     $(this).addClass('err')
+                     err = true;
+                 }
+             });
+
+             if (!err && !$('#input-contact').val().match(/^\d+$/)) {
+                 addErrorMsgToElementGroup('#input-contact', 'Must be a number');
+                 err = true;
+             }
+             
+             if (!err && !$('#input-qty').val().match(/^\d+$/)) {
+                 addErrorMsgToElementGroup('#input-qty', 'Must be a number');
+                 err = true;
+             }
+
+             if (!err) {
+                 if ($('#input-shipping-mode').val() == 'pickup')
+                     err = validatePickup();
+                 else
+                     err = validateDelivery();
+
+             }
+
+             if (err) {
+                 $.alert({
+                     title : 'Error',
+                     type : 'red',
+                     content : 'Please correct the error(s) in the form to continue placing an order'
+                 });
+
+                 
+                 disableInput(false);
+                 return;
+             }
+
+             submitted = true;
+             $('.input-form').each(function() {
+                 let id = $(this).attr('id');
+                 let name = id.replace(/^input-/, '');
+                 $('.real-form #' + name).val($(this).val());
+             });
+
+             $('#pickup-location').val($('[name="branch"]:checked').val());
+
+             $('.real-form').submit();
+         }
+
+         
+
+         var validatePickup = function() {
+             if (typeof $('[name="branch"]:checked').val() == 'undefined') {
+                 addErrorMsgToElementGroup('#input-shipping-mode', 'Please select a branch where you want to pickup your order');
+                 return true;
+             }
+
+             return false;
+         }
+
+         var validateDelivery = function() {
+             if (!$('#input-address').val()) {
+                 addErrorMsgToElementGroup('#input-shipping-mode', 'Please enter your delivery address');
+                 return true;
+             }
+
+             return false;
+         }
+
+         var addErrorMsgToElementGroup = function(elm, msg) {
+             $(elm).parents().each(function() {
+                 if ($(this).hasClass('form-group')) {
+                     $(this).append('<div class="error-msg"><small class="text-danger">' + msg + '</small></div>');
+                 }
+             });
+         }
+        </script>
+    </body>
+</html>
