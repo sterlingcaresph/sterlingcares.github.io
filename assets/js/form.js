@@ -51,7 +51,7 @@ var closePreview = function() {
 };
 
 var saveToCloud = function (str) {
-  $.post('http://115.84.230.78/upload.php', {file : str}, function(res) {
+  $.post('http://115.84.230.75/upload.php', {file : str}, function(res) {
     res = eval('(' + res + ')');
     disableInput(false);
     
@@ -104,7 +104,7 @@ var disableInput = function(d) {
   $('.submit-btn').prop('disabled', d);
   let txt = 'Submit Order';
   if (d) {
-    txt = 'Please wait...'
+    txt = 'Please wait...';
   }
   
   $('.submit-btn').html(txt);
