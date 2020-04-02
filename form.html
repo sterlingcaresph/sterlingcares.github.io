@@ -20,11 +20,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         
         <!-- Favicons -->
-        <link href="assets/img/favicon.png" rel="icon">
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="/assets/img/favicon.png" rel="icon">
+        <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
         
         <!-- Form CSS -->
-        <link href="assets/css/style-form.css" rel="stylesheet">
+        <link href="assets/css/style-form.min.css" rel="stylesheet">
 
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -38,11 +38,11 @@
         <div class="container">
             <div class="form-class">
                 <div class="back">
-                    <a href="./">&lt; Back to Sterling Cares</a>
+                    <a href="/">&laquo; Back to Sterling Cares</a>
                 </div>
                 <div class="logo">
                     <center>
-                        <img src="./assets/img/hero-logo.png">
+                        <img src="/assets/img/hero-logo.png">
                     </center>
                 </div>
                 <div class="blurb">
@@ -50,6 +50,7 @@
                         Thank you for your donation! This will go a long way in helping our frontliners and countrymen in the fight against COVID-19. Rest assured your donations will reach your intended beneficiaries in good faith and condition.
                     </p>
                 </div>
+                <hr />
                 <div class="form-group">
                     <label><span class="req">*</span> Full Name</label>
                     <input type="text" class="form-control input-form required-input"
@@ -157,193 +158,6 @@
             <iframe id="google-form-frame" name="google-form-frame" onload="iframeReady()" style="display:none"></iframe>
         </div>
 
-        <script type="text/javascript">
-         var submitted = false;
-         $('#input-shipping-mode').change(function() {
-             $('.shipping-mode').hide();
-             $('.shipping-mode#' + this.value).show();
-         });
-
-         $('#deposit-slip-btn').click(function() {
-             $('#deposit-slip-file').click();
-         });
-
-         $('#deposit-slip-file').change(function(e) {
-             fileToTxt(this.files[0]);
-         });
-
-         $('.close-preview').click(function(e) {
-             e.preventDefault();
-             closePreview();
-         });
-
-         $('.submit-btn').click(function() {
-             disableInput(true);
-             validateInput();
-             disableInput(false);
-         });
-
-         var iframeReady = function() {
-             console.log(submitted);
-             if (!submitted) {
-                 return;
-             }
-             
-             $.alert({
-                 title: 'Success',
-                 type: 'green',
-                 content: 'You order was successfull. Thank you!',
-                 buttons: {
-                     Ok: function() {
-                         window.location.reload();
-                     }
-                 }
-             });
-
-             
-         };
-
-         var closePreview = function() {
-             $('.display-upload').hide();
-             $('.upload-btn').show();
-             $('.upload-preview img').attr('src', '');
-             $('.upload-preview input[type="hidden"].deposit-slip').val('');
-         }
-
-         var saveToCloud = function (str) {
-             $.post('http://115.84.230.75/upload.php', {file : str}, function(res) {
-                 res = eval('(' + res + ')');
-                 disableInput(false);
-                 
-                 if (res.type == 'error') {
-                     $.alert({
-                         title : 'Error',
-                         type : 'red',
-                         content: res.message
-                     });
-                     
-                     return;
-                 }
-
-                 $('.upload-preview img').attr('src', res.data);
-                 $('.upload-preview input[type="hidden"].deposit-slip').val(res.data);
-                 $('.upload-btn').hide();
-                 $('.display-upload').show();
-             });
-         }
-         
-         var fileToTxt = function(file) {
-             let reader = new FileReader();
-             reader.readAsDataURL(file);
-             reader.onload = function() {
-                 disableInput(true);
-                 saveToCloud(reader.result);
-             }
-
-             reader.onerror = function(error) {
-                 disableInput(false);
-                 $.alert({
-                     title: 'Error',
-                     type: 'red',
-                     content: 'Something went wrong. Please try again.'
-                 })
-             }
-         }
-
-         var disableInput = function(d) {
-             d = d || false;
-             $('.form-control').prop('disabled', d);
-             $('.submit-btn').prop('disabled', d);
-             let txt = 'Submit Order';
-             if (d) {
-                 txt = 'Please wait...'
-             }
-             
-             $('.submit-btn').html(txt);
-         }
-
-         var validateInput = function () {
-             let err = false;
-             disableInput(true);
-             $('.error-msg').remove();
-             $('.input-form').removeClass('err');
-             $('.input-form').each(function() {
-                 if ($(this).hasClass('required-input') && !$(this).val()) {
-                     addErrorMsgToElementGroup(this, 'This field is required');
-                     $(this).addClass('err')
-                     err = true;
-                 }
-             });
-
-             if (!err && !$('#input-contact').val().match(/^\d+$/)) {
-                 addErrorMsgToElementGroup('#input-contact', 'Must be a number');
-                 err = true;
-             }
-             
-             if (!err && !$('#input-qty').val().match(/^\d+$/)) {
-                 addErrorMsgToElementGroup('#input-qty', 'Must be a number');
-                 err = true;
-             }
-
-             if (!err) {
-                 if ($('#input-shipping-mode').val() == 'pickup')
-                     err = validatePickup();
-                 else
-                     err = validateDelivery();
-
-             }
-
-             if (err) {
-                 $.alert({
-                     title : 'Error',
-                     type : 'red',
-                     content : 'Please correct the error(s) in the form to continue placing an order'
-                 });
-
-                 
-                 disableInput(false);
-                 return;
-             }
-
-             submitted = true;
-             $('.input-form').each(function() {
-                 let id = $(this).attr('id');
-                 let name = id.replace(/^input-/, '');
-                 $('.real-form #' + name).val($(this).val());
-             });
-
-             $('#pickup-location').val($('[name="branch"]:checked').val());
-
-             $('.real-form').submit();
-         }
-
-         
-
-         var validatePickup = function() {
-             if (typeof $('[name="branch"]:checked').val() == 'undefined') {
-                 addErrorMsgToElementGroup('#input-shipping-mode', 'Please select a branch where you want to pickup your order');
-                 return true;
-             }
-
-             return false;
-         }
-
-         var validateDelivery = function() {
-             if (!$('#input-address').val()) {
-                 addErrorMsgToElementGroup('#input-shipping-mode', 'Please enter your delivery address');
-                 return true;
-             }
-
-             return false;
-         }
-
-         var addErrorMsgToElementGroup = function(elm, msg) {
-             $(elm).parents().each(function() {
-                 if ($(this).hasClass('form-group')) {
-                     $(this).append('<div class="error-msg"><small class="text-danger">' + msg + '</small></div>');
-                 }
-             });
-         }
-        </script>
+        <script type="text/javascript" src="/assets/js/form.min.js"></script>
     </body>
 </html>
