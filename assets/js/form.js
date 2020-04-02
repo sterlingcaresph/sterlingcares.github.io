@@ -32,7 +32,7 @@ var iframeReady = function() {
   $.alert({
     title: 'Success',
     type: 'green',
-    content: 'You order was successfull. Thank you!',
+    content: 'Your order was successful. Thank you!',
     buttons: {
       Ok: function() {
         window.location.reload();
