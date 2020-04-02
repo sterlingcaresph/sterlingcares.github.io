@@ -935,9 +935,7 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
   padding: 60px 0;
-  background: url("../img/testimonials-bg.jpg") no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-color: #007f44;
   position: relative;
 }
 
@@ -957,12 +955,8 @@ section {
   color: #007f44;
 }
 
-.testimonials .quote-icon i {
-  color: #7cc576;
-  font-size: 24px;
-  padding: 18px;
-  border-radius: 50px;
-  border: 2px solid #7cc576;
+.testimonials .quote-icon h1 {
+  color: #fff;
 }
 
 .testimonials .testimonial-item {
@@ -1014,11 +1008,11 @@ section {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4) !important;
+  background-color: #999 !important;
 }
 
 .testimonials .owl-dot.active {
-  background-color: #7cc576 !important;
+  background-color: #ecd736 !important;
 }
 
 @media (min-width: 1024px) {
@@ -1602,7 +1596,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: url("../img/footer-bg.jpg") center center no-repeat;
+  background: url("../img/footer-bg.png") center center no-repeat;
   color: #fff;
   font-size: 14px;
   position: relative;
@@ -1615,7 +1609,6 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
   z-index: 1;
 }
 
@@ -1714,7 +1707,6 @@ section {
 }
 
 #footer .footer-bottom {
-  border-top: 1px solid #222222;
   z-index: 2;
   position: relative;
   padding-top: 40px;
@@ -1729,4 +1721,8 @@ section {
   text-align: center;
   font-size: 13px;
   padding-top: 5px;
+}
+
+#footer .credits a {
+  color: #ecd736;
 }

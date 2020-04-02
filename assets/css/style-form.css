@@ -1,0 +1,102 @@
+body {
+     color: #333;
+ }
+
+.back a {
+    color: #007f44;
+} 
+
+ .form-class {
+     margin:  10px auto;
+     max-width: 600px;
+ }
+
+ .form-class .form-group {
+     margin: 30px auto 50px;
+ }
+
+ .form-class .form-group label {
+     color: #999;
+     display: block;
+     font-size: 12px;
+     margin-bottom: 10px;
+     text-align: right;
+ }
+
+ 
+ .form-class .form-group label .req {
+     color: red;
+     display: inline-block;
+     font-size: 14px;
+     margin-right: 10px;
+ }
+
+ input[type="text"], textarea, select {
+     outline: none;
+     border: none !important;
+     border-bottom: 2px solid #ccc !important;
+     -webkit-box-shadow: none !important;
+     -moz-box-shadow: none !important;
+     box-shadow: none !important;
+     border-radius: 0px !important;
+ }
+
+ input:focus, text:focus {
+     border-color: #007bff !important;
+ }
+
+ .form-class .submit-btn {
+     display: block;
+     margin-top: 30px;
+     width: 100%;
+ }
+
+ .logo { margin-bottom: 20px; }
+ .logo img {
+     display: block;
+     max-width: 300px;
+     width: 100%;
+ }
+
+ .shipping-mode {
+     display: none;
+ }
+
+ #deposit-slip-file {
+     display: none;
+ }
+
+ #deposit-slip-btn {
+     font-size: 13px;
+     padding: 10px 20px;
+ }
+
+ .display-upload {
+     display: none;
+ }
+ 
+ .upload-preview {
+     max-width: 300px;
+     position: relative;
+ }
+ 
+ .upload-preview a.close-preview {
+     color: red;
+     margin-left: 100%;
+     margin-top: -10px;
+     left: -28px;
+     position: absolute;
+ }
+ 
+ .upload-preview img {
+     border: 1px solid #ddd;
+     border-radius: 2px;
+     display:block;
+     max-width: 280px;
+     padding: 10px;
+     width: 100%;
+ }
+
+ input[type="text"].err, textarea.err, select.err {
+     border-color: red !important;
+ }

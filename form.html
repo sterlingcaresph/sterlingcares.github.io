@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Sterling Cares </title>
+		<title>Order Form | Sterling Cares </title>
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -19,106 +19,13 @@
 		<meta name="HandheldFriendly" content="true" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         
-        <style>
-         body {
-             color: #333;
-         }
-         
-         .form-class {
-             margin:  10px auto;
-             max-width: 600px;
-         }
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        
+        <!-- Form CSS -->
+        <link href="assets/css/style-form.css" rel="stylesheet">
 
-         .form-class .form-group {
-             margin: 30px auto 50px;
-         }
-
-         .form-class .form-group label {
-             color: #999;
-             display: block;
-             font-size: 12px;
-             margin-bottom: 10px;
-             text-align: right;
-         }
-
-         
-         .form-class .form-group label .req {
-             color: red;
-             display: inline-block;
-             font-size: 14px;
-             margin-right: 10px;
-         }
-
-         input[type="text"], textarea, select {
-             outline: none;
-             border: none !important;
-             border-bottom: 2px solid #ccc !important;
-             -webkit-box-shadow: none !important;
-             -moz-box-shadow: none !important;
-             box-shadow: none !important;
-             border-radius: 0px !important;
-         }
-
-         input:focus, text:focus {
-             border-color: #007bff !important;
-         }
-
-         .form-class .submit-btn {
-             display: block;
-             margin-top: 30px;
-             width: 100%;
-         }
-
-         .logo { margin-bottom: 20px; }
-         .logo img {
-             display: block;
-             max-width: 300px;
-             width: 100%;
-         }
-
-         .shipping-mode {
-             display: none;
-         }
-
-         #deposit-slip-file {
-             display: none;
-         }
-
-         #deposit-slip-btn {
-             font-size: 13px;
-             padding: 10px 20px;
-         }
-
-         .display-upload {
-             display: none;
-         }
-         
-         .upload-preview {
-             max-width: 300px;
-             position: relative;
-         }
-         
-         .upload-preview a.close-preview {
-             color: red;
-             margin-left: 100%;
-             margin-top: -10px;
-             left: -28px;
-             position: absolute;
-         }
-         
-         .upload-preview img {
-             border: 1px solid #ddd;
-             border-radius: 2px;
-             display:block;
-             max-width: 280px;
-             padding: 10px;
-             width: 100%;
-         }
-
-         input[type="text"].err, textarea.err, select.err {
-             border-color: red !important;
-         }
-        </style>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -130,10 +37,18 @@
     <body>
         <div class="container">
             <div class="form-class">
+                <div class="back">
+                    <a href="./">&lt; Back to Sterling Cares</a>
+                </div>
                 <div class="logo">
                     <center>
-                        <img src="/assets/img/hero-logo.png">
+                        <img src="./assets/img/hero-logo.png">
                     </center>
+                </div>
+                <div class="blurb">
+                    <p>
+                        Thank you for your donation! This will go a long way in helping our frontliners and countrymen in the fight against COVID-19. Rest assured your donations will reach your intended beneficiaries in good faith and condition.
+                    </p>
                 </div>
                 <div class="form-group">
                     <label><span class="req">*</span> Full Name</label>
