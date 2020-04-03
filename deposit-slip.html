@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Order Form | Sterling Cares </title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous" />
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+              rel="stylesheet"
+              crossorigin="anonymous" />
+
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css"
+              rel="stylesheet"
+              crossorigin="anonymous" />
+
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <!-- Favicons -->
+        <link href="/assets/img/favicon.png" rel="icon">
+        <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        
+        <!-- Form CSS -->
+        <link href="/assets/css/style-form.min.css" rel="stylesheet">
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+        <script type"text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-class">
+                <div class="back">
+                    <a href="/">&laquo; Back to Sterling Cares</a>
+                </div>
+                <div class="logo">
+                    <center>
+                        <img src="/assets/img/hero-logo.png">
+                    </center>
+                </div>
+                <div class="form-group">
+                    <label><span class="req">*</span>  Order Reference</label>
+                    <input type="text" class="form-control input-form"
+                           placeholder="Enter your Order Reference"
+                           id="input-reference"/>
+                </div>
+                <div class="form-group">
+                    <label><span class="req">*</span> Deposit Slip</label>
+                    <div class="upload-btn">
+                        <button class="btn btn-primary" id="deposit-slip-btn"><i class="fa fa-upload"></i> Upload a File</button>
+                        <input type="file" class="form-control" id="deposit-slip-file" />
+                        <p><small class="text-success">Upload a photo of your deposit slip</small></p>
+                    </div>
+                    <div class="display-upload">
+                        <div class="upload-preview">
+                            <a href="#" class="close-preview"><i class="fas fa-times-circle"></i></a>
+                            <img src="" />
+                            <input type="hidden" class="deposit-slip input-form required-input" id="input-deposit-slip">
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <button class="btn btn-success deposit-btn">Submit Deposit Slip</button>
+                    <a href="/form.html" class="btn btn-primary upload-slip"><i class="fas fa-plus-circle"></i> Make a Donation</a>
+                </div>
+            </div>
+            <form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSdXtkbUhG-Q5_A3l37EIdPA5qapzTaYPE0xXqmi9AyycgY2Ng/formResponse" 
+                  class="real-deposit-form"
+                  target="google-deposit-frame">
+                
+                <input type="hidden" name="entry.1700037593" id="reference" />
+                <input type="hidden" name="entry.1405516235" id="deposit-slip" />
+                <input type="hidden" name="fvv" value="1" />
+                <input type="hidden" name="draftResponse" value='[null,null,"-122021532327292073"]' />
+                <input type="hidden" name="pageHistory" value="0" />
+                <input type="hidden" name="fbzx" value="-122021532327292073" />
+            </form>
+            <iframe id="google-deposit-frame" name="google-deposit-frame" onload="depositReady()" style="display:none"></iframe>
+        </div>
+        <script type="text/javascript" src="/assets/js/form.min.js"></script>
+        <script type="text/javascript">
+         $(document).ready(function () {
+             let total = getCookie('total');
+             let reference = getCookie('reference');
+             if (!total || !reference) {
+                 return;
+             }
+
+             $('#input-reference').val(reference);
+         });
+        </script>
+    </body>
+</html>
