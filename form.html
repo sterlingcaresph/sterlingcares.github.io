@@ -24,7 +24,7 @@
         <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
         
         <!-- Form CSS -->
-        <link href="assets/css/style-form.min.css" rel="stylesheet">
+        <link href="/assets/css/style-form.min.css" rel="stylesheet">
 
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -52,104 +52,115 @@
                 </div>
                 <hr />
                 <div class="form-group">
-                    <label><span class="req">*</span> Full Name</label>
+                    <label><span class="req">*</span> Donor Full Name</label>
                     <input type="text" class="form-control input-form required-input"
-                           placeholder="Enter your Fullname"
+                           placeholder="Enter Donor Full name"
                            id="input-name"/>
                 </div>
 
                 <div class="form-group">
-                    <label><span class="req">*</span> Contact Number</label>
+                    <label><span class="req">*</span> Donor Contact Number</label>
                     <input type="text" class="form-control input-form required-input"
-                           placeholder="Enter your Contact Number"
+                           placeholder="Enter Donor Contact Number"
                            id="input-contact"/>
                 </div>
                 
                 <div class="form-group">
-                    <label>Email Address</label>
+                    <label>Donor Email Address</label>
                     <input type="text" class="form-control input-form"
-                           placeholder="Enter your Email Address"
+                           placeholder="Enter Donor Email Address"
                            id="input-email"/>
                 </div>
 
                 <div class="form-group">
-                    <label>Organization</label>
+                    <label>Donor Organization</label>
                     <input type="text" class="form-control input-form"
-                           placeholder="Enter your Organization"
+                           placeholder="Enter Donor Organization"
                            id="input-organization"/>
                 </div>
-                
-                <div class="form-group">
-                    <label><span class="req">*</span> Quantity</label>
-                    <input type="text" class="form-control input-form required-input"
-                           placeholder="Enter order quantity"
-                           id="input-qty"/>
-                </div>
-                
-                <div class="form-group">
-                    <label><span class="req">*</span> Beneficiary</label>
-                    <input type="text" class="form-control input-form required-input"
-                           placeholder="Enter Beneficiary"
-                           id="input-beneficiary"/>
-                </div>
-                
-                <div class="form-group">
-                    <label><span class="req">*</span> Mode of Shipping</label>
-                    <select class="form-control input-form required-input" id="input-shipping-mode">
-                        <option selected disabled>Select mode of Shipping</option>
-                        <option value="pickup">Pickup</option>
-                        <option value="delivery">Delivery</option>
-                    </select>
-                </div>
-                <div class="form-group shipping-mode" id="delivery">
-                    <label><span class="req">*</span> Delivery Address</label>
-                    <textarea placeholder="Enter your delivery address"
-                              class="form-control input-form"
-                              id="input-address"></textarea>
-                </div>
-                <div class="form-group shipping-mode" id="pickup">
-                    <label><span class="req">*</span> Pickup Address</label>
-                    <div><input type="radio" value="caloocan" name="branch"> Caloocan Branch
-                        <p><small class="text-secondary">Sterling Paper Products Enterprises, 111 Lapu-Lapu, Caloocan</small></p>
-                    </div>
-                    <div><input type="radio" value="makati" name="branch"> Makati Branch
-                        <p><small class="text-secondary">Sterling Place, 2302, Chino Roces Ave., Pasong Tamo Ext., Makati</small></p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label><span class="req">*</span> Deposit Slip</label>
-                    <div class="upload-btn">
-                        <button class="btn btn-primary" id="deposit-slip-btn"><i class="fa fa-upload"></i> Upload a File</button>
-                        <input type="file" class="form-control" id="deposit-slip-file" />
-                        <p><small class="text-success">Upload a photo of your deposit slip</small></p>
-                    </div>
-                    <div class="display-upload">
-                        <div class="upload-preview">
-                            <a href="#" class="close-preview"><i class="fas fa-times-circle"></i></a>
-                            <img src="" />
-                            <input type="hidden" class="deposit-slip input-form required-input" id="input-deposit-slip">
+                <h3>Beneficiaries</h3>
+                <div class="beneficiaries">
+                    <div><small class="text-primary">- 1 box is equal to 120 face shields</small></div>
+                    <div><small class="text-primary">- 1 faceshield costs <strong>PHP35</strong></small></div>
+                    <div><small class="text-primary">- 1 box will cost you <strong>PHP4,200</strong></small></div>
+                    <div><small class="text-primary">- minimum donation is 1 box per beneficiary</strong></small></div>
+                    <hr />
+                    <div class="beneficiary" data-index="0">
+                        <div class="form-group">
+                            <label><span class="req">*</span> Beneficiary</label>
+                            <input type="text" class="form-control input-form required-input"
+                                   placeholder="Enter Beneficiary. (hospital, organization, or person)"
+                                   id="input-beneficiary-0"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><span class="req">*</span> Beneficiary Box Quantity</label>
+                            <input type="text" class="form-control input-form required-input input-qty"
+                                   placeholder="Enter Beneficiary Box Quantity"
+                                   id="input-qty-0"/>
+                            <div class="faceshield-count text-success">0 face shields = PHP0</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><span class="req">*</span> Beneficiary Point Person</label>
+                            <input type="text" class="form-control input-form required-input"
+                                   placeholder="Enter Beneficiary Point Person"
+                                   id="input-point-person-0"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><span class="req">*</span> Beneficiary Point Person Contact #</label>
+                            <input type="text" class="form-control input-form required-input input-point-contact"
+                                   placeholder="Enter Beneficiary Point Person Contact #"
+                                   id="input-point-contact-0"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><span class="req">*</span> Mode of Shipping</label>
+                            <select class="form-control input-form required-input input-shipping-mode" id="input-shipping-mode-0">
+                                <option selected disabled>Select mode of Shipping</option>
+                                <option value="pickup">Pickup</option>
+                                <option value="delivery">Delivery</option>
+                            </select>
+                        </div>
+                        <div class="form-group shipping-mode" id="delivery">
+                            <label><span class="req">*</span> Beneficiary Delivery Address</label>
+                            <textarea placeholder="Enter Benediciary delivery address"
+                                      class="form-control input-address"
+                                      id="input-address-0"></textarea>
+                        </div>
+                        <div class="form-group shipping-mode" id="pickup">
+                            <label><span class="req">*</span> Pickup Address</label>
+                            <div><input type="radio" value="caloocan" name="branch[0]" class="input-pickup"> Caloocan Branch
+                                <p><small class="text-secondary">Sterling Paper Products Enterprises, 111 Lapu-Lapu, Caloocan</small></p>
+                            </div>
+                            <div><input type="radio" value="makati" name="branch[0]" class="input-pickup"> Makati Branch
+                                <p><small class="text-secondary">Sterling Place, 2302, Chino Roces Ave., Pasong Tamo Ext., Makati</small></p>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <a href="#" class="btn btn-primary add-beneficiary"><i class="fas fa-plus-circle"></i> Add another Beneficiary</a>
+                <hr />
+                <div class="order-total">
+                    <h4 class="text-success">Order Total: PHP<span class="order-total-value">0</span></h4>
                 </div>
                 <hr />
                 <div class="form-group">
                     <button class="btn btn-danger submit-btn">Submit Order</button>
                 </div>
             </div>
-            <form method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeIBgN__BB7EFYXeQi8pU3soZLUIe01VU-P5mJsmteB-OSAfg/formResponse" 
+            <form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLScz48rVEcSb3p2d1uqgb7toyMKQtWHyOB13ICqE_USg2xQ7Jg/formResponse" 
                   class="real-form"
                   target="google-form-frame">
                 
-                <input type="hidden" name="entry.594017490" id="name" />
-                <input type="hidden" name="entry.209479185" id="contact" />
-                <input type="hidden" name="entry.1577165370" id="email" />
-                <input type="hidden" name="entry.413789895" id="organization" />
-                <input type="hidden" name="entry.820448976" id="qty" />
-                <input type="hidden" name="entry.1790000769" id="beneficiary" />
-                <input type="hidden" name="entry.844164960" id="shipping-mode" />
-                <input type="hidden" name="entry.1337268639" id="address" />
-                <input type="hidden" name="entry.1824279313" id="pickup-location" />
-                <input type="hidden" name="entry.1144749940" id="deposit-slip" />
+                <input type="hidden" name="entry.1728640724" id="name" class="populatable" />
+                <input type="hidden" name="entry.1272152839" id="contact"  class="populatable" />
+                <input type="hidden" name="entry.1430449422" id="email" class="populatable" />
+                <input type="hidden" name="entry.344126398" id="organization" class="populatable" />
+                <input type="hidden" name="entry.754225709" id="beneficiary" />
+                <input type="hidden" name="entry.1639724174" id="reference" />
+                <input type="hidden" name="entry.295445363" id="total-box" />
                 <input type="hidden" name="fvv" value="1" />
                 <input type="hidden" name="draftResponse" value='[null,null,"-122021532327292073"]' />
                 <input type="hidden" name="pageHistory" value="0" />
@@ -158,6 +169,69 @@
             <iframe id="google-form-frame" name="google-form-frame" onload="iframeReady()" style="display:none"></iframe>
         </div>
 
-        <script type="text/javascript" src="/assets/js/form.min.js"></script>
+        <script type="text/tpl" id="beneficiary-tpl">
+            <div class="beneficiary" data-index="[INDEX]">
+                <a href="#" class="text-danger remove-beneficiary"><i class="fas fa-trash-alt"></i> remove</a>
+                <h5 class="text-primary">Another Beneficiary</h5>
+                <div class="form-group">
+                    <label><span class="req">*</span> Beneficiary</label>
+                    <input type="text" class="form-control input-form required-input"
+                           placeholder="Enter Beneficiary. (hospital, organization, or person)"
+                           id="input-beneficiary-[INDEX]"/>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Beneficiary Box Quantity</label>
+                    <input type="text" class="form-control input-form required-input input-qty"
+                           placeholder="Enter Beneficiary quantity"
+                           id="input-qty-INDEX"/>
+                    <div class="faceshield-count text-success">0 face shields = PHP0</div>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Beneficiary Point Person</label>
+                    <input type="text" class="form-control input-form required-input"
+                           placeholder="Enter Beneficiary Point Person"
+                           id="input-point-person-[INDEX]"/>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Beneficiary Point Person Contact #</label>
+                    <input type="text" class="form-control input-form required-input input-point-contact"
+                           placeholder="Enter Beneficiary Point Person Contact #"
+                           id="input-point-contact-[INDEX]"/>
+                </div>
+                
+                <div class="form-group">
+                    <label><span class="req">*</span> Mode of Shipping</label>
+                    <select class="form-control input-form required-input input-shipping-mode" id="input-shipping-mode-[INDEX]">
+                        <option selected disabled>Select mode of Shipping</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="delivery">Delivery</option>
+                    </select>
+                </div>
+                <div class="form-group shipping-mode" id="delivery">
+                    <label><span class="req">*</span> Beneficiary Delivery Address</label>
+                    <textarea placeholder="Enter Benediciary delivery address"
+                              class="form-control input-address"
+                              id="input-address"></textarea>
+                </div>
+                <div class="form-group shipping-mode" id="pickup">
+                    <label><span class="req">*</span> Pickup Address</label>
+                    <div><input type="radio" value="caloocan" name="branch[[INDEX]]" class="input-pickup"> Caloocan Branch
+                        <p><small class="text-secondary">Sterling Paper Products Enterprises, 111 Lapu-Lapu, Caloocan</small></p>
+                    </div>
+                    <div><input type="radio" value="makati" name="branch[[INDEX]]" class="input-pickup"> Makati Branch
+                        <p><small class="text-secondary">Sterling Place, 2302, Chino Roces Ave., Pasong Tamo Ext., Makati</small></p>
+                    </div>
+                </div>
+            </div>
+         </script>
+         <script type="text/javascript" src="/assets/js/form.min.js"></script>
+         <script type="text/javascript">
+          $(document).ready(function () {
+              showPopup();
+          });
+         </script>
     </body>
 </html>

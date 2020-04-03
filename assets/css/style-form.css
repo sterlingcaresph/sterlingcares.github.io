@@ -45,7 +45,7 @@ body {
      border-color: #007bff !important;
  }
 
- .form-class .submit-btn {
+ .form-class .submit-btn, .form-class .deposit-btn {
      display: block;
      margin-top: 30px;
      width: 100%;
@@ -99,4 +99,14 @@ body {
 
  input[type="text"].err, textarea.err, select.err {
      border-color: red !important;
+ }
+
+ .remove-beneficiary {
+     display: block;
+     float: right;
+     font-size: 12px;
+ }
+
+ .order-total {
+     text-align: right;
  }
