@@ -110,3 +110,9 @@ body {
  .order-total {
      text-align: right;
  }
+
+ .upload-slip {
+     display: block;
+     margin-top: 5px;
+     width: 100%;
+ }
