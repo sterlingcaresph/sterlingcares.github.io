@@ -198,7 +198,7 @@ var validateInput = function () {
 
     submitted = true;
     prepareForm();
-    //$('.real-form').submit();
+    $('.real-form').submit();
 };
 
 var uuid = function () {
