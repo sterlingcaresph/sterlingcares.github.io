@@ -48,16 +48,19 @@ var showPopup = function () {
         +'<hr />'
         + '<h3>Payment Instruction</h3>'
         +'<div>Kindly send your donations to any one of our bank accounts:</div>'
-        +'<div> - Account Name: STERLING PAPER PRODUCTS ENT., INC.</div>'
-        +'<div> - UCPB 202-53000083-1</div>'
-        +'<div> - MBTC 233-3-23351529-0</div>'
-        +'<div> - BDO 001450016896</div>'
-        +'<div> - PBCOM 218-10-000024-0</div>'
+        +'<br />'
+        +'<div> - Account Name: <strong class="text-danger">STERLING PAPER PRODUCTS ENT., INC.</strong></div>'
+        +'<div> - UCPB <span class="text-success">202-53000083-1</span></div>'
+        +'<div> - MBTC <span class="text-success">233-3-23351529-0</span></div>'
+        +'<div> - BDO <span class="text-success">001450016896</span></div>'
+        +'<div> - PBCOM <span class="text-success">218-10-000024-0</span></div>'
+        +'<br />'
         +'<div> - Once deposit has been made, please send us a copy of the deposit slip <here (shows the Upload Deposit Slip CTA)>. We will get back to you right away to confirm your deposit payment.</div>'
         +'<div> - Thank you.</div>';
     
     $.confirm({
         title: 'Order Summary',
+        columnClass: 'xlarge',
         type: 'green',
         content: text,
         buttons: {
@@ -195,7 +198,7 @@ var validateInput = function () {
 
     submitted = true;
     prepareForm();
-    $('.real-form').submit();
+    //$('.real-form').submit();
 };
 
 var uuid = function () {
@@ -254,7 +257,7 @@ var validatePickup = function(self) {
 };
 
 var validateDelivery = function(self) {
-    if (!$(self).find('.input-address').val()) {
+    if (!$(self).find('.input-address').val() || $(self).find('input-address').val().trim() == '') {
         addErrorMsgToElementGroup(self, '.input-shipping-mode', 'Please enter your delivery address');
         return true;
     }
@@ -410,6 +413,7 @@ var depositReady = function () {
     $.alert({
         title: 'Success',
         type: 'green',
+        columnClass: 'medium',
         content: 'Transaction complete! We will get back to you as soon as we confirm your order. Thank you!',
         buttons: {
             Ok: function () {
