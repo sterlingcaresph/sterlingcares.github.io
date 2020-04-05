@@ -69,7 +69,7 @@ var showPopup = function () {
             },
             'Close' : function () {}
         }
-    })
+    });
 };
 
 var closePreview = function() {
@@ -198,7 +198,7 @@ var validateInput = function () {
 
     submitted = true;
     prepareForm();
-    $('.real-form').submit();
+   $('.real-form').submit();
 };
 
 var uuid = function () {
@@ -213,7 +213,7 @@ var prepareForm = function () {
         }
     });
 
-    $('.real-form #beneficiary').val(prepareBeneficiaries());
+    prepareBeneficiaries();
     let reference = uuid();
     let totalBox = 0;
     $('.beneficiaries .beneficiary').each(function () {
@@ -229,8 +229,14 @@ var prepareForm = function () {
 
 var prepareBeneficiaries = function () {
     let beneficiary = [];
+    let qty = [];
+    let pointPerson = [];
+    let pointContact = [];
+    let shippingMode = [];
+    let address = [];
+    let pickup = [];
     $('.beneficiaries .beneficiary').each(function () {
-        let entry = [];
+        /*let entry = [];
         $(this).find('.input-form').each(function () {
             entry.push($(this).val());
         });
@@ -241,10 +247,30 @@ var prepareBeneficiaries = function () {
             entry.push($(this).find('.input-address').val());
         }
         
-        beneficiary.push(entry.join('  ;;;  '));
+           beneficiary.push(entry.join('  ;;;  '));*/
+
+        beneficiary.push($(this).find('.input-beneficiary').val());
+        qty.push($(this).find('.input-qty').val());
+        pointPerson.push($(this).find('.input-point-person').val());
+        pointContact.push($(this).find('.input-point-contact').val());
+        shippingMode.push($(this).find('.input-shipping-mode').val());
+
+        if ($(this).find('.input-shipping-mode').val() == 'pickup') {
+            pickup.push($(this).find('.input-pickup:checked').val());
+            address.push('-NONE-');
+        } else if ($(this).find('.input-shipping-mode').val() == 'delivery') {
+            address.push($(this).find('.input-address').val());
+            pickup.push('-NONE-');
+        }
     });
 
-    return beneficiary.join("\n");
+    $('.real-form #beneficiary').val(beneficiary.join(' / '));
+    $('.real-form #qty').val(qty.join(' / '));
+    $('.real-form #point-person').val(pointPerson.join(' / '));
+    $('.real-form #point-contact').val(pointContact.join(' / '));
+    $('.real-form #shipping-mode').val(shippingMode.join(' / '));
+    $('.real-form #address').val(address.join(' / '));
+    $('.real-form #pickup-point').val(pickup.join(' / '));
 };
 
 var validatePickup = function(self) {
@@ -257,7 +283,7 @@ var validatePickup = function(self) {
 };
 
 var validateDelivery = function(self) {
-    if (!$(self).find('.input-address').val() || $(self).find('input-address').val().trim() == '') {
+    if (!$(self).find('.input-address').val()) {
         addErrorMsgToElementGroup(self, '.input-shipping-mode', 'Please enter your delivery address');
         return true;
     }
