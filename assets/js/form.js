@@ -43,20 +43,8 @@ var showPopup = function () {
         +'<div>Order Total:</div>'
         +'<h3 class="text-success">PHP ' + total +'</h3>'
         +'<hr />'
-        +'<p>Your order is now PENDING CONFIRMATION! Thank you so much for your help. This will go a long way in helping our frontliners and countrymen in the fight against COVID-19. Please check instructions below to be able to proceed with payment.</p>'
-
-        +'<hr />'
-        + '<h3>Payment Instruction</h3>'
-        +'<div>Kindly send your donations to any one of our bank accounts:</div>'
-        +'<br />'
-        +'<div> - Account Name: <strong class="text-danger">STERLING PAPER PRODUCTS ENT., INC.</strong></div>'
-        +'<div> - UCPB <span class="text-success">202-53000083-1</span></div>'
-        +'<div> - MBTC <span class="text-success">233-3-23351529-0</span></div>'
-        +'<div> - BDO <span class="text-success">001450016896</span></div>'
-        +'<div> - PBCOM <span class="text-success">218-10-000024-0</span></div>'
-        +'<br />'
-        +'<div> - Once deposit has been made, please send us a copy of the deposit slip <here (shows the Upload Deposit Slip CTA)>. We will get back to you right away to confirm your deposit payment.</div>'
-        +'<div> - Thank you.</div>';
+        +'<p>Your order is now PENDING CONFIRMATION! Thank you so much for your help. This will go a long way in helping our frontliners and countrymen in the fight against COVID-19.</p>'
+        +'<p>Please wait for confirmation on our end once we are ready to proceed with your order. We will contact you shortly regarding your donation.</p>';
     
     $.confirm({
         title: 'Order Summary',
