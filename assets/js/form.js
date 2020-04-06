@@ -220,10 +220,10 @@ var prepareForm = function () {
     let amount = 0;
     $('.beneficiaries .beneficiary').each(function () {
         totalBox += parseInt($(this).find('.input-qty').val());
-        amount += (amount * php);
+        amount += parseInt($(this).find('.input-qty').val()) * php;
     });
 
-    $('#amount').val(amount);
+    $('#amount').val(amount.join(' / '));
     $('.real-form #total-box').val(totalBox);
     setCookie('reference', reference, 30);
     setCookie('total', getOrderTotal(), 30);
