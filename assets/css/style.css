@@ -379,7 +379,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #007f44;
 }
 
-#hero .btn-get-started:hover {
+#hero .btn-get-started:hover, #G01modal .btn-get-started:hover {
   background: #ecd736;
   color: #333;
 }
@@ -1316,6 +1316,30 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact {
+  background-color: #007f44;
+  position: relative;
+}
+
+.contact h2 {
+  color: #FFF !important;
+}
+
+.contact p {
+  color: #E9E9E9 !important;
+}
+
+.contact .btn-get-started {
+  color: #333;
+  background: #ecd736;
+}
+
+.contact .btn-get-started:hover {
+  background: #E9E9E9 !important;
+  color: #007f44 !important;
+}
+
+
 .contact .info {
   width: 100%;
   height: 100%;
