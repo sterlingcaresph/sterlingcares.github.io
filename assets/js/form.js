@@ -40,14 +40,14 @@ var showPopup = function () {
 
     let text = '<div>Your order reference is:</div>'
         +'<h3 class="text-primary">' + ref +'</h3>'
-        +'<div>Order Total:</div>'
+        +'<div>Donation Total:</div>'
         +'<h3 class="text-success">PHP ' + total +'</h3>'
         +'<hr />'
         +'<p>Your order is now PENDING CONFIRMATION! Thank you so much for your help. This will go a long way in helping our frontliners and countrymen in the fight against COVID-19.</p>'
         +'<p>Please wait for confirmation on our end once we are ready to proceed with your order. We will contact you shortly regarding your donation.</p>';
     
     $.confirm({
-        title: 'Order Summary',
+        title: 'Donation Summary',
         columnClass: 'xlarge',
         type: 'green',
         content: text,
@@ -119,7 +119,7 @@ var disableInput = function(d) {
     d = d || false;
     $('.form-control').prop('disabled', d);
     $('.submit-btn, .deposit-btn').prop('disabled', d);
-    let txt = 'Submit Order';
+    let txt = 'Submit Donation';
     let depositTxt = 'Submit Deposit Slip'
     if (d) {
         txt = 'Please wait...';
@@ -402,7 +402,7 @@ var validateDeposit = function () {
     disableInput(true);
     $('.error-msg').remove();
     if (!$('#input-reference').val().trim()) {
-        addErrorMsgToElementGroup($('#input-reference').parent(), '#input-reference', 'Please enter your Order reference');
+        addErrorMsgToElementGroup($('#input-reference').parent(), '#input-reference', 'Please enter your Donation reference');
         err = true;
     }
 
