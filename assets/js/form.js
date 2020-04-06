@@ -223,7 +223,6 @@ var prepareForm = function () {
         amount += parseInt($(this).find('.input-qty').val()) * php;
     });
 
-    console.log(amount);
     $('#amount').val(amount);
     $('.real-form #total-box').val(totalBox);
     setCookie('reference', reference, 30);
