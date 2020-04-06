@@ -171,6 +171,10 @@ var validateInput = function () {
         });
 
     }
+    
+    if (!checkTerms()) {
+        err = true;
+    }
 
     if (err) {
         $.alert({
@@ -178,7 +182,6 @@ var validateInput = function () {
             type : 'red',
             content : 'Please correct the error(s) in the form to continue placing an order'
         });
-
         
         disableInput(false);
         return;
@@ -188,6 +191,15 @@ var validateInput = function () {
     prepareForm();
    $('.real-form').submit();
 };
+
+var checkTerms = function () {
+    if(!$('#terms').is(':checked')) {
+        $('#terms').parent().append('<div class="error-msg"><small class="text-danger">You need to agree with the terms below to proceed and make a Donation.</small></div>');
+        return false;
+    }
+
+    return true;
+}
 
 var uuid = function () {
     return  Math.floor(Math.random() * Date.now());
@@ -204,10 +216,14 @@ var prepareForm = function () {
     prepareBeneficiaries();
     let reference = uuid();
     let totalBox = 0;
+    let php = 4200;
+    let amount = [];
     $('.beneficiaries .beneficiary').each(function () {
         totalBox += parseInt($(this).find('.input-qty').val());
+        amount.push(parseInt($(this).find('.input-qty').val()) * php);
     });
 
+    $('#amount').val(amount.join(' / '));
     $('.real-form #total-box').val(totalBox);
     setCookie('reference', reference, 30);
     setCookie('total', getOrderTotal(), 30);
