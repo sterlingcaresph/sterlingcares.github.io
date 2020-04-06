@@ -462,19 +462,19 @@ Both can be found on Waze or Google Maps.</p>
   <script src="assets/js/main.js"></script>
 
 <!--Chatbot-->
-<script>
- var div = document.createElement(‘div’);
- div.className = ‘fb-customerchat’;
- div.setAttribute(‘page_id’, ‘112330967085015’);
- div.setAttribute(‘ref’, ‘’);
+<script type="text/javascript">
+ var div = document.createElement('div');
+ div.className = 'fb-customerchat';
+ div.setAttribute('page_id', '112330967085015');
+ div.setAttribute('ref', '');
  document.body.appendChild(div);
  window.fbMessengerPlugins = window.fbMessengerPlugins || {
   init: function () {
    FB.init({
-    appId      : ‘1678638095724206’,
+    appId      : '1678638095724206',
     autoLogAppEvents : true,
     xfbml      : true,
-    version     : ‘v3.3’
+    version     : 'v3.3'
    });
   }, callable: []
  };
@@ -488,9 +488,9 @@ Both can be found on Waze or Google Maps.</p>
    if (d.getElementById(id)) { return; }
    js = d.createElement(s);
     js.id = id;
-   js.src = “//connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+   js.src = "//connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
    fjs.parentNode.insertBefore(js, fjs);
-  }(document, ‘script’, ‘facebook-jssdk’));
+  }(document, 'script', 'facebook-jssdk'));
  }, 0);
 </script>
 
