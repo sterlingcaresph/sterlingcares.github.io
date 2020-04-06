@@ -217,13 +217,13 @@ var prepareForm = function () {
     let reference = uuid();
     let totalBox = 0;
     let php = 4200;
-    let amount = [];
+    let amount = 0;
     $('.beneficiaries .beneficiary').each(function () {
         totalBox += parseInt($(this).find('.input-qty').val());
-        amount.push(parseInt($(this).find('.input-qty').val()) * php);
+        amount += (amount * php);
     });
 
-    $('#amount').val(amount.join(' / '));
+    $('#amount').val(amount);
     $('.real-form #total-box').val(totalBox);
     setCookie('reference', reference, 30);
     setCookie('total', getOrderTotal(), 30);
