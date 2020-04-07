@@ -38,13 +38,13 @@ var showPopup = function () {
         return;
     }
 
-    let text = '<div>Your order reference is:</div>'
+    let text = '<div>Your donation reference is:</div>'
         +'<h3 class="text-primary">' + ref +'</h3>'
         +'<div>Donation Total:</div>'
         +'<h3 class="text-success">PHP ' + total +'</h3>'
         +'<hr />'
-        +'<p>Your order is now PENDING CONFIRMATION! Thank you so much for your help. This will go a long way in helping our frontliners and countrymen in the fight against COVID-19.</p>'
-        +'<p>Please wait for confirmation on our end once we are ready to proceed with your order. We will contact you shortly regarding your donation.</p>';
+        +'<p>Your donation is now PENDING CONFIRMATION! Thank you so much for your help. This will go a long way in helping our frontliners and countrymen in the fight against COVID-19.</p>'
+        +'<p>Please wait for confirmation on our end once we are ready to proceed with your donation. We will contact you shortly regarding your donation.</p>';
     
     $.confirm({
         title: 'Donation Summary',
@@ -180,7 +180,7 @@ var validateInput = function () {
         $.alert({
             title : 'Error',
             type : 'red',
-            content : 'Please correct the error(s) in the form to continue placing an order'
+            content : 'Please correct the error(s) in the form to continue placing a donation'
         });
         
         disableInput(false);
@@ -279,7 +279,7 @@ var prepareBeneficiaries = function () {
 
 var validatePickup = function(self) {
     if (typeof $(self).find('.input-pickup:checked').val() == 'undefined') {
-        addErrorMsgToElementGroup(self, '.input-shipping-mode', 'Please select a branch where you want to pickup your order');
+        addErrorMsgToElementGroup(self, '.input-shipping-mode', 'Please select a branch where you want to pickup your donation');
         return true;
     }
 
@@ -415,7 +415,7 @@ var validateDeposit = function () {
         $.alert({
             title : 'Error',
             type : 'red',
-            content : 'Please correct the error(s) in the form to continue placing an order'
+            content : 'Please correct the error(s) in the form to continue placing a donation'
         });
 
         
@@ -444,7 +444,7 @@ var depositReady = function () {
         title: 'Success',
         type: 'green',
         columnClass: 'medium',
-        content: 'Transaction complete! We will get back to you as soon as we confirm your order. Thank you!',
+        content: 'Transaction complete! We will get back to you as soon as we confirm your donation. Thank you!',
         buttons: {
             Ok: function () {
                 window.location.reload();
